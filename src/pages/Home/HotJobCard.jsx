@@ -1,5 +1,5 @@
 import React from "react";
-import { FaMapMarkerAlt } from "react-icons/fa";
+import { FaDollarSign, FaMapMarkerAlt } from "react-icons/fa";
 
 const HotJobCard = ({ job }) => {
   const {
@@ -29,13 +29,19 @@ const HotJobCard = ({ job }) => {
         <h2 className="card-title">{title}</h2>
         <div className="badge badge-secondary">New</div>
         <p>{description}</p>
-        <div>
+        <div className="flex gap-2 flex-wrap">
           {requirements.map((skill) => (
-            <p>{skill}</p>
+            <p className="border rounded-md text-center px-2 hover:text-blue-800 hover:bg-gray-200 cursor-pointer">
+              {skill}
+            </p>
           ))}
         </div>
-        <div className="card-actions justify-end">
-          <button className="btn btn-primary">Buy Now</button>
+        <div className="card-actions justify-end items-center mt-4">
+          <p className="flex items-center">
+            Salary: <FaDollarSign></FaDollarSign> {salaryRange.min} -{" "}
+            {salaryRange.max}
+          </p>
+          <button className="btn btn-primary">Apply</button>
         </div>
       </div>
     </div>
