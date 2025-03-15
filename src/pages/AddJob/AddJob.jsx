@@ -7,6 +7,9 @@ const AddJob = () => {
     // console.log(formData.entries());
     const initialData = Object.fromEntries(formData.entries());
     console.log(initialData);
+    const { min, max, currency, ...newJob } = initialData;
+    newJob.salaryRange = { min, max, currency };
+    console.log(newJob);
   };
   return (
     <div className="card bg-base-100 w-1/2 mx-auto my-6 shrink-0 shadow-2xl">
@@ -75,6 +78,7 @@ const AddJob = () => {
               <select
                 defaultValue="Pick a font"
                 className="select select-ghost"
+                name="currency"
               >
                 <option disabled={true}>Pick a Currency</option>
                 <option>BDT</option>
