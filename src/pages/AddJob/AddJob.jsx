@@ -9,7 +9,21 @@ const AddJob = () => {
     console.log(initialData);
     const { min, max, currency, ...newJob } = initialData;
     newJob.salaryRange = { min, max, currency };
+    newJob.requirements = newJob.requirements.split("\n");
+    newJob.responsibilities = newJob.responsibilities.split("\n");
     console.log(newJob);
+
+    fetch("http://localhost:5000/jobs", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newJob),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
   };
   return (
     <div className="card bg-base-100 w-1/2 mx-auto my-6 shrink-0 shadow-2xl">
