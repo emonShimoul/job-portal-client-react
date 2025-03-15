@@ -1,11 +1,18 @@
 import React from "react";
 
 const AddJob = () => {
+  const handleAddJob = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    // console.log(formData.entries());
+    const initialData = Object.fromEntries(formData.entries());
+    console.log(initialData);
+  };
   return (
     <div className="card bg-base-100 w-1/2 mx-auto my-6 shrink-0 shadow-2xl">
       <h2 className="text-3xl font-bold text-center mt-6">Add a Job</h2>
       <div className="card-body">
-        <form className="fieldset">
+        <form onSubmit={handleAddJob} className="fieldset">
           {/* job title */}
           <label className="fieldset-label">Job Title</label>
           <input
