@@ -1,6 +1,13 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import useAuth from "../../hooks/useAuth";
 
 const AddJob = () => {
+  const navigate = useNavigate();
+
+  const { user } = useAuth();
+
   const handleAddJob = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -23,6 +30,16 @@ const AddJob = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Job has beed added!!",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          navigate("/myapplications");
+        }
       });
   };
   return (
@@ -143,6 +160,7 @@ const AddJob = () => {
           <input
             type="email"
             name="hr_email"
+            defaultValue={user?.email}
             className="input w-full"
             placeholder="HR Email"
           />
