@@ -38,7 +38,7 @@ const AddJob = () => {
             showConfirmButton: false,
             timer: 1500,
           });
-          navigate("/myapplications");
+          navigate("/myPostedJobs");
         }
       });
   };
@@ -163,6 +163,17 @@ const AddJob = () => {
             defaultValue={user?.email}
             className="input w-full"
             placeholder="HR Email"
+          />
+
+          {/* Application Deadline */}
+          <label className="fieldset-label">Deadline</label>
+          <input
+            type="date"
+            name="applicationDeadline"
+            defaultValue={user?.email}
+            className="input w-full"
+            placeholder="Deadline"
+            required
           />
 
           {/* HR name */}
