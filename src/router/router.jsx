@@ -40,7 +40,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/myapplications",
+        path: "myapplications",
         element: (
           <PrivateRoute>
             <MyApplications></MyApplications>
