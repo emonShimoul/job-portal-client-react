@@ -4,7 +4,6 @@ import { Link, useLoaderData } from "react-router-dom";
 const JobDetails = () => {
   const { _id, title, company, applicationDeadline } = useLoaderData();
   //   const job = useLoaderData();
-  //   console.log(job);
 
   return (
     <div className="m-10 flex flex-col gap-4">

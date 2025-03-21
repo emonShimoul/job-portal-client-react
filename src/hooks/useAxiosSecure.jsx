@@ -21,7 +21,6 @@ const useAxiosSecure = () => {
         console.log("Error caught in interceptoor", error);
 
         if (error.status === 401 || error.status === 403) {
-          console.log("need to logout the user");
           signOutUser()
             .then(() => {
               console.log("logged out user..");

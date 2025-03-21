@@ -10,8 +10,6 @@ const HotJobs = () => {
       .then((data) => setJobs(data));
   }, []);
 
-  //   console.log(jobs);
-
   return (
     <div>
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
