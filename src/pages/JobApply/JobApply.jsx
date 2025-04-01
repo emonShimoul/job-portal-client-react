@@ -7,7 +7,6 @@ const JobApply = () => {
   const { id } = useParams();
   const { user } = useAuth();
   const navigate = useNavigate();
-  // console.log(id, user);
 
   const submitJobApplication = (e) => {
     e.preventDefault();
